@@ -1,0 +1,11 @@
+function [A_e,B_e,C_e]=format_change(Am,Bm,Cm);
+[m1,n1]=size(Cm);
+[n1,n_in]=size(Bm);
+A_e=eye(n1+m1,n1+m1);
+A_e(1:n1,1:n1)=Am;
+A_e(n1+1:n1+m1,1:n1)=Cm*Am;
+B_e=zeros(n1+m1,n_in);
+B_e(1:n1,:)=Bm;
+B_e(n1+1:n1+m1,:)=Cm*Bm;
+C_e=zeros(m1,n1+m1);
+C_e(:,n1+1:n1+m1)=eye(m1,m1);
