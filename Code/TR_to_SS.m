@@ -1,0 +1,11 @@
+clc;clear;
+omega=10;
+numc=omega^2;
+denc=[1 0.1*omega omega^2];
+[Ac,Bc,Cc,Dc]=tf2ss(numc,denc);
+Delta_t=0.01;
+[Ad,Bd,Cd,Dd]=c2dm(Ac,Bc,Cc,Dc,Delta_t);
+Nc=3;
+Np=20;
+% Np=200;
+[Phi_Phi,Phi_F,Phi_R,A,B,C]=mpcgain(Ad,Bd,Cd,Nc,Np);

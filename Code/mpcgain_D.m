@@ -1,4 +1,5 @@
-function [Phi_Phi,Phi_F,Phi_R,A_e, B_e,C_e]=mpcgain(Ap,Bp,Cp,Nc,Np)
+function [Phi,F,Phi_Phi,Phi_F,Phi_R,A_e, B_e,C_e]=mpcgain_D(Ap,Bp,Cp,Nc,Np)
+% Details of mpcgain
 [m1,n1]=size(Cp);
 [n1,n_in]=size(Bp);
 A_e=eye(n1+m1,n1+m1);
